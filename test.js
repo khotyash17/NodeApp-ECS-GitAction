@@ -1,18 +1,7 @@
-const request = require('supertest');
-
-const app = require('../app.js'); // Adjust if your app filename is app.js
-
-
-describe('GET /nonexistentpage', function() {
-
-  it('should respond with 404 Not Found', function(done) {
-
-    request(app)
-
-      .get('/nonexistentpage')
-
-      .expect(404, done); // This is a cleaner way to end test if only checking status
-
-  });
-
+var request = require('supertest');
+var app = require('../index.js');
+describe('GET /', function() {
+ it('respond with hello world', function(done) { //navigate to root and check the the response is "hello world"
+ request(app).get('/').expect('hello world', done);
+ });
 });
